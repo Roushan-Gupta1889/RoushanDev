@@ -98,9 +98,9 @@ export const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative flex items-center justify-center"
+            className="relative flex flex-col items-center justify-center"
           >
-            <div className="relative w-full max-w-md lg:max-w-lg aspect-square">
+            <div className="relative w-full max-w-sm lg:max-w-md aspect-square">
               {/* Glow effect behind image */}
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl" />
               
@@ -118,40 +118,40 @@ export const HeroSection = () => {
                   </p>
                 </div>
               </div>
-
-              {/* Social Icons */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="absolute -bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-4"
-              >
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-secondary/80 border border-border flex items-center justify-center text-muted-foreground transition-all duration-300 hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] hover:scale-110"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://youtube.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-14 h-14 rounded-full bg-secondary/80 border border-border flex items-center justify-center text-muted-foreground transition-all duration-300 hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] hover:scale-110"
-                >
-                  <Youtube className="w-6 h-6" />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-secondary/80 border border-border flex items-center justify-center text-muted-foreground transition-all duration-300 hover:bg-gradient-to-tr hover:from-[#FCAF45] hover:via-[#E1306C] hover:to-[#833AB4] hover:text-white hover:border-transparent hover:scale-110"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
-              </motion.div>
             </div>
+
+            {/* Social Icons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="flex items-center gap-4 mt-8"
+            >
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-secondary/80 border border-border flex items-center justify-center text-muted-foreground transition-all duration-300 hover:bg-[#0A66C2] hover:text-white hover:border-[#0A66C2] hover:scale-110"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-secondary/80 border border-border flex items-center justify-center text-muted-foreground transition-all duration-300 hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] hover:scale-110"
+              >
+                <Youtube className="w-5 h-5" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-secondary/80 border border-border flex items-center justify-center text-muted-foreground transition-all duration-300 hover:bg-gradient-to-tr hover:from-[#FCAF45] hover:via-[#E1306C] hover:to-[#833AB4] hover:text-white hover:border-transparent hover:scale-110"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+            </motion.div>
           </motion.div>
         </div>
       </div>
