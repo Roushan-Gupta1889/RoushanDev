@@ -152,6 +152,75 @@ const logos = [
       </svg>
     ),
   },
+  {
+    name: "PostgreSQL",
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-full h-full">
+        <path d="M17.5 3c-2 0-3.5 1-4.5 2.5-1-1-2.5-1.5-4-1.5C5.5 4 3 6.5 3 10c0 4 2 8 5 10 1 .7 2 1 3 1 1.5 0 3-.5 4-2 .5 1 1.5 2 3 2 2.5 0 4-2 4-5 0-4-2-8-4.5-13z" fill="#336791"/>
+        <path d="M12 8c-1 0-2 1-2 2.5S11 13 12 13s2-1 2-2.5S13 8 12 8z" fill="white"/>
+        <path d="M16 14c0 2-1 3-2 3s-2-1-2-2c0 0 1 1 2 1s2-1 2-2z" fill="white" opacity="0.6"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Kubernetes",
+    svg: (
+      <svg viewBox="0 0 24 24" fill="#326CE5" className="w-full h-full">
+        <path d="M12 2L3 7v10l9 5 9-5V7l-9-5z"/>
+        <path d="M12 6l-4 2v4l4 2 4-2V8l-4-2z" fill="white"/>
+        <circle cx="12" cy="10" r="1.5" fill="#326CE5"/>
+        <path d="M12 6v2M8 8l1.5 1M16 8l-1.5 1M8 12l1.5-1M16 12l-1.5-1M12 14v-2" stroke="white" strokeWidth="0.5"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Firebase",
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-full h-full">
+        <path d="M4 18L6.5 3l4 7.5L14 6l6 12H4z" fill="#FFA000"/>
+        <path d="M4 18l2.5-15 4 7.5L4 18z" fill="#F57C00"/>
+        <path d="M10.5 10.5L14 6l6 12H4l6.5-7.5z" fill="#FFCA28"/>
+        <path d="M20 18L14 6l-3.5 4.5L20 18z" fill="#FFA000" opacity="0.6"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Vercel",
+    svg: (
+      <svg viewBox="0 0 24 24" fill="white" className="w-full h-full">
+        <path d="M12 2L2 20h20L12 2z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Rust",
+    svg: (
+      <svg viewBox="0 0 24 24" fill="#DEA584" className="w-full h-full">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+        <path d="M12 4v2M12 18v2M4 12h2M18 12h2M6.3 6.3l1.4 1.4M16.3 16.3l1.4 1.4M6.3 17.7l1.4-1.4M16.3 7.7l1.4-1.4" stroke="currentColor" strokeWidth="1"/>
+        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+        <text x="12" y="13.5" textAnchor="middle" fontSize="5" fill="currentColor" fontWeight="bold">R</text>
+      </svg>
+    ),
+  },
+  {
+    name: "Svelte",
+    svg: (
+      <svg viewBox="0 0 24 24" fill="#FF3E00" className="w-full h-full">
+        <path d="M20.5 5.5c-2-3-6-4-9-2l-5 3c-2.5 1.5-3.5 4.5-2.5 7 .5 1.5 1.5 2.5 3 3l-.5 1c-1-1-2-2.5-2-4-.5-3 1-6 4-7.5l5-3c3.5-2 8-1 10 2.5 1.5 2.5 1 6-1 8l-2 1.5c.5-1 .5-2 0-3l1.5-1c1.5-1 2-3.5 1-5.5z"/>
+        <path d="M17 10c-.5-1.5-1.5-2.5-3-3l.5-1c1 1 2 2.5 2 4 .5 3-1 6-4 7.5l-5 3c-3.5 2-8 1-10-2.5-1.5-2.5-1-6 1-8l2-1.5c-.5 1-.5 2 0 3l-1.5 1c-1.5 1-2 3.5-1 5.5 2 3 6 4 9 2l5-3c2.5-1.5 3.5-4.5 2.5-7z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Go",
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-full h-full">
+        <path d="M3 12c0-1 .5-1.5 1-2l1-.5c-.5-.5-1-1-1-2 0-1.5 1-2.5 3-2.5 1.5 0 2.5.5 3 1.5l-1.5 1c-.3-.5-.8-.8-1.5-.8-.8 0-1.2.3-1.2.8 0 .4.3.7 1 1l1.5.7c1 .5 1.7 1.2 1.7 2.3 0 1.7-1.3 2.7-3.2 2.7-1.7 0-3-.7-3.5-2l1.5-1c.3.8 1 1.3 2 1.3.9 0 1.4-.4 1.4-1 0-.5-.4-.8-1.2-1.2L5 9.5C4 9 3 8.3 3 7c0 0 0 5 0 5z" fill="#00ADD8"/>
+        <path d="M12 11c0-2.5 1.5-4 4-4s4 1.5 4 4-1.5 4-4 4-4-1.5-4-4zm6 0c0-1.5-.7-2.3-2-2.3s-2 .8-2 2.3.7 2.3 2 2.3 2-.8 2-2.3z" fill="#00ADD8"/>
+      </svg>
+    ),
+  },
 ];
 
 interface Point3D {
