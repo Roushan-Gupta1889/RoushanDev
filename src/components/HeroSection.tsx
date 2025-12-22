@@ -13,80 +13,111 @@ export const HeroSection = () => {
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "-3s" }} />
 
       <div className="container-custom relative z-10 pt-24">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/50 mb-8"
-          >
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-muted-foreground">
-              Available for freelance projects
-            </span>
-          </motion.div>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Content */}
+          <div className="text-left">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/50 mb-8"
+            >
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-muted-foreground">
+                Available for freelance projects
+              </span>
+            </motion.div>
 
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6"
-          >
-            I Build{" "}
-            <span className="text-gradient">Digital Products</span>
-            <br />
-            That Users Love
-          </motion.h1>
+            {/* Main Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-display font-bold leading-tight mb-6"
+            >
+              I Build{" "}
+              <span className="text-gradient">Digital Products</span>
+              <br />
+              That Users Love
+            </motion.h1>
 
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
-          >
-            Frontend developer & product builder specializing in creating 
-            fast, accessible, and beautifully crafted web experiences 
-            that drive results.
-          </motion.p>
+            {/* Subheadline */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10"
+            >
+              Frontend developer & product builder specializing in creating 
+              fast, accessible, and beautifully crafted web experiences 
+              that drive results.
+            </motion.p>
 
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Button size="lg" className="font-semibold group">
-              View My Work
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button size="lg" variant="outline" className="font-semibold">
-              Download Resume
-            </Button>
-          </motion.div>
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <Button size="lg" className="font-semibold group">
+                View My Work
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button size="lg" variant="outline" className="font-semibold">
+                Download Resume
+              </Button>
+            </motion.div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-3 gap-8 mt-16 pt-16 border-t border-border/50 max-w-2xl mx-auto"
-          >
-            {[
-              { value: "5+", label: "Years Experience" },
-              { value: "50+", label: "Projects Completed" },
-              { value: "30+", label: "Happy Clients" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-3xl md:text-4xl font-display font-bold text-gradient mb-1">
-                  {stat.value}
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="grid grid-cols-3 gap-8 mt-12 pt-12 border-t border-border/50 max-w-xl"
+            >
+              {[
+                { value: "5+", label: "Years Experience" },
+                { value: "50+", label: "Projects Completed" },
+                { value: "30+", label: "Happy Clients" },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center sm:text-left">
+                  <div className="text-2xl md:text-3xl font-display font-bold text-gradient mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Right Hero Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="relative flex items-center justify-center"
+          >
+            <div className="relative w-full max-w-md lg:max-w-lg aspect-square">
+              {/* Glow effect behind image */}
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl" />
+              
+              {/* Image placeholder */}
+              <div className="relative w-full h-full rounded-2xl border-2 border-dashed border-border bg-secondary/30 flex items-center justify-center overflow-hidden">
+                <div className="text-center p-8">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Sparkles className="w-8 h-8 text-primary" />
+                  </div>
+                  <p className="text-muted-foreground text-sm">
+                    Add your hero image here
+                  </p>
+                  <p className="text-muted-foreground/60 text-xs mt-1">
+                    Recommended: 500x500px
+                  </p>
+                </div>
               </div>
-            ))}
+            </div>
           </motion.div>
         </div>
       </div>
