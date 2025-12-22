@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { motion, useAnimationFrame } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { useAnimationFrame } from "framer-motion";
 
 // Technology logos as SVG components
 const logos = [
@@ -8,7 +8,6 @@ const logos = [
     svg: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full text-[#61DAFB]">
         <path d="M12 13.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/>
-        <path fillRule="evenodd" d="M12 21.35c6.075 0 11-2.092 11-4.675 0-2.582-4.925-4.675-11-4.675S1 14.093 1 16.675c0 2.583 4.925 4.675 11 4.675Zm0-1.5c4.97 0 9-1.567 9-3.175 0-1.607-4.03-3.175-9-3.175s-9 1.568-9 3.175c0 1.608 4.03 3.175 9 3.175Z" style={{transform: 'rotate(60deg)', transformOrigin: 'center'}}/>
         <ellipse cx="12" cy="12" rx="11" ry="4.675" fill="none" stroke="currentColor" strokeWidth="1"/>
         <ellipse cx="12" cy="12" rx="11" ry="4.675" fill="none" stroke="currentColor" strokeWidth="1" style={{transform: 'rotate(60deg)', transformOrigin: 'center'}}/>
         <ellipse cx="12" cy="12" rx="11" ry="4.675" fill="none" stroke="currentColor" strokeWidth="1" style={{transform: 'rotate(-60deg)', transformOrigin: 'center'}}/>
@@ -164,7 +163,11 @@ interface Point3D {
 export const TechSphere = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const rotationRef = useRef({ x: 0, y: 0 });
+  const velocityRef = useRef({ x: 0.0003, y: 0.0005 });
   const pointsRef = useRef<Point3D[]>([]);
+  const isDraggingRef = useRef(false);
+  const lastMouseRef = useRef({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const numPoints = logos.length;
@@ -185,16 +188,41 @@ export const TechSphere = () => {
     pointsRef.current = points;
   }, []);
 
-  useAnimationFrame((time) => {
+  // Mouse/touch handlers
+  const handlePointerDown = (e: React.PointerEvent) => {
+    isDraggingRef.current = true;
+    lastMouseRef.current = { x: e.clientX, y: e.clientY };
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isDraggingRef.current) return;
+    
+    const deltaX = e.clientX - lastMouseRef.current.x;
+    const deltaY = e.clientY - lastMouseRef.current.y;
+    
+    rotationRef.current.y += deltaX * 0.005;
+    rotationRef.current.x += deltaY * 0.005;
+    
+    lastMouseRef.current = { x: e.clientX, y: e.clientY };
+  };
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    isDraggingRef.current = false;
+    (e.target as HTMLElement).releasePointerCapture(e.pointerId);
+  };
+
+  useAnimationFrame((time, delta) => {
     if (!containerRef.current) return;
 
-    const speedX = 0.00015;
-    const speedY = 0.0003;
-    rotationRef.current.x = time * speedX;
-    rotationRef.current.y = time * speedY;
+    // Only auto-rotate when not hovered and not dragging
+    if (!isHovered && !isDraggingRef.current) {
+      rotationRef.current.x += velocityRef.current.x * delta;
+      rotationRef.current.y += velocityRef.current.y * delta;
+    }
 
     const items = containerRef.current.querySelectorAll<HTMLElement>("[data-sphere-item]");
-    const radius = 140;
+    const radius = 180;
 
     items.forEach((item, index) => {
       const point = pointsRef.current[index];
@@ -213,7 +241,7 @@ export const TechSphere = () => {
       y = newY;
       z = newZ;
 
-      const perspective = 500;
+      const perspective = 600;
       const scale = perspective / (perspective + z * radius);
       const projectedX = x * radius * scale;
       const projectedY = y * radius * scale;
@@ -231,33 +259,32 @@ export const TechSphere = () => {
   return (
     <div className="relative w-full h-full flex items-center justify-center">
       {/* Subtle ambient glow */}
-      <div className="absolute w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
       
       {/* Sphere container */}
       <div
         ref={containerRef}
-        className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96"
-        style={{ perspective: "1000px" }}
+        className="relative w-80 h-80 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] cursor-grab active:cursor-grabbing select-none"
+        style={{ perspective: "1200px" }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
       >
         {/* Technology logos */}
         {logos.map((logo) => (
           <div
             key={logo.name}
             data-sphere-item
-            className="absolute left-1/2 top-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+            className="absolute left-1/2 top-1/2 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 pointer-events-none"
             style={{ willChange: "transform, opacity" }}
             title={logo.name}
           >
             {logo.svg}
           </div>
         ))}
-
-        {/* Subtle orbit ring */}
-        <motion.div
-          className="absolute inset-8 border border-border/20 rounded-full"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-        />
       </div>
     </div>
   );
