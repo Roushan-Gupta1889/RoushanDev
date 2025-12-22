@@ -33,16 +33,29 @@ export const Navbar = () => {
         isScrolled ? "py-3" : "py-5"
       }`}
     >
-      <nav className="container-custom flex items-center justify-between">
+      <nav className={`container-custom flex items-center transition-all duration-500 ${
+        isScrolled ? "justify-center" : "justify-between"
+      }`}>
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg accent-gradient flex items-center justify-center">
+        <motion.a 
+          href="#" 
+          className="flex items-center gap-2 group"
+          initial={false}
+          animate={{ 
+            opacity: isScrolled ? 0 : 1,
+            width: isScrolled ? 0 : "auto",
+            marginRight: isScrolled ? 0 : "auto"
+          }}
+          transition={{ duration: 0.3 }}
+          style={{ overflow: "hidden" }}
+        >
+          <div className="w-8 h-8 rounded-lg accent-gradient flex items-center justify-center flex-shrink-0">
             <Code2 className="w-4 h-4 text-primary-foreground" />
           </div>
-          <span className="font-display font-bold text-lg text-foreground">
+          <span className="font-display font-bold text-lg text-foreground whitespace-nowrap">
             Coder Army
           </span>
-        </a>
+        </motion.a>
 
         {/* Desktop Nav - Centered Pill Container */}
         <div className="hidden md:flex items-center">
@@ -65,15 +78,25 @@ export const Navbar = () => {
         </div>
 
         {/* Login Button */}
-        <div className="hidden md:block">
+        <motion.div 
+          className="hidden md:block"
+          initial={false}
+          animate={{ 
+            opacity: isScrolled ? 0 : 1,
+            width: isScrolled ? 0 : "auto",
+            marginLeft: isScrolled ? 0 : "auto"
+          }}
+          transition={{ duration: 0.3 }}
+          style={{ overflow: "hidden" }}
+        >
           <Button 
             variant="default" 
-            className="rounded-full px-6 font-semibold gap-2"
+            className="rounded-full px-6 font-semibold gap-2 whitespace-nowrap"
           >
             <LogIn className="w-4 h-4" />
             Login
           </Button>
-        </div>
+        </motion.div>
 
         {/* Mobile Menu Button */}
         <button
