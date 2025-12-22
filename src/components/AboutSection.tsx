@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { MapPin, Calendar, Coffee } from "lucide-react";
+import { MapPin, Calendar } from "lucide-react";
+import { TechSphere } from "./TechSphere";
 
 export const AboutSection = () => {
   return (
@@ -15,40 +16,7 @@ export const AboutSection = () => {
             className="relative"
           >
             <div className="relative aspect-square max-w-xs sm:max-w-sm md:max-w-md mx-auto">
-              {/* Decorative elements */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-2xl" />
-              <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-secondary/50 border border-border overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent" />
-                {/* Abstract code visualization */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-5xl sm:text-6xl md:text-8xl font-display font-bold text-primary/20">
-                    {"</>"}
-                  </div>
-                </div>
-              </div>
-              
-              {/* Floating cards - adjusted position for mobile */}
-              <motion.div
-                animate={{ y: [-5, 5, -5] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -right-2 md:-right-4 top-1/4 glass-card p-2 md:p-3 glow-box"
-              >
-                <div className="flex items-center gap-1.5 md:gap-2">
-                  <Coffee className="w-3 h-3 md:w-4 md:h-4 text-primary" />
-                  <span className="text-xs md:text-sm font-medium">1000+ coffees</span>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [5, -5, 5] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -left-2 md:-left-4 bottom-1/4 glass-card p-2 md:p-3 glow-box"
-              >
-                <div className="flex items-center gap-1.5 md:gap-2">
-                  <MapPin className="w-3 h-3 md:w-4 md:h-4 text-primary" />
-                  <span className="text-xs md:text-sm font-medium">Remote Ready</span>
-                </div>
-              </motion.div>
+              <TechSphere />
             </div>
           </motion.div>
 
