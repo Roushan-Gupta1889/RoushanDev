@@ -5,7 +5,7 @@ import { Linkedin, Youtube, Instagram } from "lucide-react";
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden hero-gradient">
       {/* Background glow */}
       <div className="absolute inset-0 bg-hero-glow" />
       
@@ -13,8 +13,8 @@ export const HeroSection = () => {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "-3s" }} />
 
-      <div className="container-custom relative z-10 pt-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="container-custom relative z-10 pt-16 pb-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <div className="text-left">
             {/* Badge */}
@@ -22,7 +22,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/50 mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/50 mb-4"
             >
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-muted-foreground">
@@ -35,7 +35,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-display font-bold leading-tight mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-display font-bold leading-tight mb-4"
             >
               I Build{" "}
               <span className="text-gradient">Digital Products</span>
@@ -48,7 +48,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10"
+              className="text-base md:text-lg text-muted-foreground max-w-xl mb-6"
             >
               Frontend developer & product builder specializing in creating 
               fast, accessible, and beautifully crafted web experiences 
@@ -76,7 +76,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-3 gap-8 mt-12 pt-12 border-t border-border/50 max-w-xl"
+              className="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-border/50 max-w-xl"
             >
               {[
                 { value: "5+", label: "Years Experience" },
@@ -100,7 +100,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="relative flex flex-col items-center justify-center"
           >
-            <div className="relative w-full max-w-sm lg:max-w-md aspect-square">
+            <div className="relative w-full max-w-xs lg:max-w-sm aspect-square">
               {/* Glow effect behind image */}
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl" />
               
@@ -125,7 +125,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex items-center gap-4 mt-8"
+              className="flex items-center gap-4 mt-6"
             >
               <a
                 href="https://linkedin.com"
@@ -161,7 +161,7 @@ export const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2"
       >
         <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2">
           <motion.div
