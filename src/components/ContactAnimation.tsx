@@ -93,9 +93,9 @@ export const ContactAnimation = () => {
           {/* Letter/Paper inside envelope - animated */}
           <motion.div
             className="absolute left-3 right-3 md:left-4 md:right-4 bg-muted/90 rounded-t-md shadow-lg"
-            style={{ top: "10%", height: "70%" }}
+            style={{ top: "40%", height: "70%" }}
             animate={{
-              y: [-20, -20, -60, -60, -20],
+              y: [0, 0, -50, -50, 0],
             }}
             transition={{
               duration: 6,
