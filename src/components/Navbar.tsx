@@ -59,7 +59,7 @@ export const Navbar = () => {
           <span className="font-display font-bold text-xl whitespace-nowrap">
             <span className="text-foreground">Roushan</span>
             <span className="text-primary">Dev</span>
-            <span className="text-foreground">Folio</span>
+            <span className="text-foreground"></span>
           </span>
         </motion.a>
 
