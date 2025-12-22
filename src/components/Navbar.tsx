@@ -56,8 +56,11 @@ export const Navbar = () => {
           <div className="w-8 h-8 rounded-lg accent-gradient flex items-center justify-center flex-shrink-0">
             <Code2 className="w-4 h-4 text-primary-foreground" />
           </div>
-          <span className="font-display font-bold text-lg text-foreground whitespace-nowrap">RoushanDevFolio
-        </span>
+          <span className="font-display font-bold text-xl whitespace-nowrap">
+            <span className="text-foreground">Roushan</span>
+            <span className="text-primary">Dev</span>
+            <span className="text-foreground">Folio</span>
+          </span>
         </motion.a>
 
         {/* Desktop Nav - Centered Pill Container */}
