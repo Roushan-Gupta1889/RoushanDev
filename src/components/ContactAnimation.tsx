@@ -123,12 +123,13 @@ export const ContactAnimation = () => {
       </motion.div>
 
       {/* Orbiting paper plane */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ perspective: "600px" }}>
         <motion.div
           className="absolute"
           style={{
             width: "100%",
             height: "100%",
+            transformStyle: "preserve-3d",
           }}
           animate={{
             rotateY: [0, 360],
@@ -140,16 +141,15 @@ export const ContactAnimation = () => {
           }}
         >
           <motion.div
-            className="absolute w-8 h-8 md:w-10 md:h-10"
+            className="absolute"
             style={{
               left: "50%",
               top: "50%",
-              marginLeft: "-16px",
-              marginTop: "-16px",
-              transform: "translateX(100px)",
+              transform: "translateX(110px) translateZ(0px)",
+              transformStyle: "preserve-3d",
             }}
             animate={{
-              y: [0, -10, 0, 10, 0],
+              y: [0, -8, 0, 8, 0],
             }}
             transition={{
               duration: 2,
@@ -158,16 +158,24 @@ export const ContactAnimation = () => {
             }}
           >
             <motion.div
+              className="w-10 h-10 md:w-12 md:h-12"
               animate={{
                 rotateY: [0, -360],
+                scale: [1.3, 1.3, 0.7, 0.7, 1.3],
+                opacity: [1, 1, 0.4, 0.4, 1],
               }}
               transition={{
                 duration: orbitDuration,
                 repeat: Infinity,
                 ease: "linear",
+                times: [0, 0.25, 0.5, 0.75, 1],
+              }}
+              style={{
+                marginLeft: "-20px",
+                marginTop: "-20px",
               }}
             >
-              <svg viewBox="0 0 24 24" className="w-full h-full text-muted-foreground/90 drop-shadow-lg">
+              <svg viewBox="0 0 24 24" className="w-full h-full text-muted-foreground drop-shadow-lg">
                 <path
                   fill="currentColor"
                   d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
@@ -181,23 +189,6 @@ export const ContactAnimation = () => {
             </motion.div>
           </motion.div>
         </motion.div>
-
-        {/* Opacity mask for depth effect - fades plane when behind */}
-        <motion.div
-          className="absolute w-8 h-8 md:w-10 md:h-10 pointer-events-none"
-          style={{
-            background: "transparent",
-          }}
-          animate={{
-            opacity: [1, 1, 0.3, 0.3, 1],
-          }}
-          transition={{
-            duration: orbitDuration,
-            repeat: Infinity,
-            ease: "linear",
-            times: [0, 0.2, 0.4, 0.6, 0.8],
-          }}
-        />
       </div>
     </div>
   );
