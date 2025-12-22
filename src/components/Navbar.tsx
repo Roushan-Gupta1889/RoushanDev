@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Code2, LogIn } from "lucide-react";
+import { Menu, X, Code2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
@@ -93,8 +93,8 @@ export const Navbar = () => {
             variant="default" 
             className="rounded-full px-6 font-semibold gap-2 whitespace-nowrap"
           >
-            <LogIn className="w-4 h-4" />
-            Login
+            <MessageCircle className="w-4 h-4" />
+            Let's Connect
           </Button>
         </motion.div>
 
@@ -134,8 +134,8 @@ export const Navbar = () => {
               </a>
             ))}
             <Button variant="default" className="w-full mt-4 rounded-full font-semibold gap-2">
-              <LogIn className="w-4 h-4" />
-              Login
+              <MessageCircle className="w-4 h-4" />
+              Let's Connect
             </Button>
           </div>
         </motion.div>
