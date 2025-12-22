@@ -89,10 +89,19 @@ export const ContactAnimation = () => {
             </svg>
           </div>
 
-          {/* Letter/Paper inside envelope */}
-          <div
+          {/* Letter/Paper inside envelope - animated */}
+          <motion.div
             className="absolute left-3 right-3 md:left-4 md:right-4 bg-muted/90 rounded-t-md shadow-lg"
-            style={{ top: "10%", height: "70%", transform: "translateY(-60px)" }}
+            style={{ top: "10%", height: "70%" }}
+            animate={{
+              y: [-20, -20, -60, -60, -20],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+              times: [0, 0.3, 0.45, 0.85, 1],
+            }}
           >
             {/* Letter content lines */}
             <div className="p-3 md:p-4 space-y-2 md:space-y-3">
@@ -100,7 +109,7 @@ export const ContactAnimation = () => {
               <div className="h-2 md:h-3 bg-muted-foreground/20 rounded-full w-full" />
               <div className="h-2 md:h-3 bg-muted-foreground/20 rounded-full w-5/6" />
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact card */}
           <motion.div
