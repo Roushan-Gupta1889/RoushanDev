@@ -133,72 +133,42 @@ export const ContactAnimation = () => {
         </div>
       </motion.div>
 
-      {/* Orbiting paper plane */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ perspective: "600px" }}>
+      {/* Orbiting paper plane using circular path */}
+      <div className="absolute inset-0 pointer-events-none">
         <motion.div
-          className="absolute"
+          className="absolute w-10 h-10 md:w-12 md:h-12"
           style={{
-            width: "100%",
-            height: "100%",
-            transformStyle: "preserve-3d",
+            left: "50%",
+            top: "50%",
+            marginLeft: "-20px",
+            marginTop: "-24px",
           }}
           animate={{
-            rotateY: [0, 360],
+            x: [120, 85, 0, -85, -120, -85, 0, 85, 120],
+            y: [0, -85, -120, -85, 0, 85, 120, 85, 0],
+            scale: [1.2, 1, 0.6, 0.5, 0.6, 0.7, 1.2, 1.3, 1.2],
+            opacity: [1, 0.9, 0.5, 0.35, 0.5, 0.7, 1, 1, 1],
+            zIndex: [10, 5, 0, 0, 0, 5, 10, 10, 10],
+            rotate: [45, 0, -45, -90, -135, -180, -225, -270, -315],
           }}
           transition={{
             duration: orbitDuration,
             repeat: Infinity,
             ease: "linear",
+            times: [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1],
           }}
         >
-          <motion.div
-            className="absolute"
-            style={{
-              left: "50%",
-              top: "50%",
-              transform: "translateX(110px) translateZ(0px)",
-              transformStyle: "preserve-3d",
-            }}
-            animate={{
-              y: [0, -8, 0, 8, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <motion.div
-              className="w-10 h-10 md:w-12 md:h-12"
-              animate={{
-                rotateY: [0, -360],
-                scale: [1.3, 1.3, 0.7, 0.7, 1.3],
-                opacity: [1, 1, 0.4, 0.4, 1],
-              }}
-              transition={{
-                duration: orbitDuration,
-                repeat: Infinity,
-                ease: "linear",
-                times: [0, 0.25, 0.5, 0.75, 1],
-              }}
-              style={{
-                marginLeft: "-20px",
-                marginTop: "-20px",
-              }}
-            >
-              <svg viewBox="0 0 24 24" className="w-full h-full text-muted-foreground drop-shadow-lg">
-                <path
-                  fill="currentColor"
-                  d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                />
-                <path
-                  fill="currentColor"
-                  opacity="0.6"
-                  d="M2 10l15 2-15 2V10z"
-                />
-              </svg>
-            </motion.div>
-          </motion.div>
+          <svg viewBox="0 0 24 24" className="w-full h-full text-muted-foreground drop-shadow-lg">
+            <path
+              fill="currentColor"
+              d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+            />
+            <path
+              fill="currentColor"
+              opacity="0.6"
+              d="M2 10l15 2-15 2V10z"
+            />
+          </svg>
         </motion.div>
       </div>
     </div>
