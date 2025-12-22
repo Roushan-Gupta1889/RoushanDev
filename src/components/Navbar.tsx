@@ -59,7 +59,7 @@ export const Navbar = () => {
 
         {/* Desktop Nav - Centered Pill Container */}
         <div className="hidden md:flex items-center">
-          <div className="flex items-center gap-1 bg-card/80 backdrop-blur-xl border border-border/50 rounded-full px-2 py-2">
+          <div className="flex items-center gap-1 bg-card/30 backdrop-blur-xl border border-border/30 rounded-full px-2 py-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
