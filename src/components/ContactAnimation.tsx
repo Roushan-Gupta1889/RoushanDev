@@ -56,8 +56,19 @@ export const ContactAnimation = () => {
             {/* Envelope inner shadow for depth */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/20" />
             
-            {/* Envelope flap (open) */}
-            <div className="absolute -top-1 left-0 right-0 h-16 md:h-20 origin-bottom" style={{ transform: "rotateX(180deg)" }}>
+            {/* Envelope flap (animated open/close) */}
+            <motion.div
+              className="absolute -top-1 left-0 right-0 h-16 md:h-20 origin-bottom"
+              animate={{
+                rotateX: [180, 180, 0, 0, 180],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+                times: [0, 0.3, 0.45, 0.85, 1],
+              }}
+            >
               <svg viewBox="0 0 100 40" className="w-full h-full" preserveAspectRatio="none">
                 <path
                   d="M0 40 L50 5 L100 40 Z"
@@ -65,7 +76,7 @@ export const ContactAnimation = () => {
                   strokeWidth="0.5"
                 />
               </svg>
-            </div>
+            </motion.div>
 
             {/* @ Symbol on envelope */}
             <div className="absolute top-1/2 left-4 md:left-6 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-background/90 rounded-full flex items-center justify-center border border-border/30">
