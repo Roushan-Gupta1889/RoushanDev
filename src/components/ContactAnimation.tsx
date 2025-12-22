@@ -1,55 +1,55 @@
-import { motion } from "framer-motion";
+import { motion, useAnimationFrame } from "framer-motion";
+import { useState, useRef } from "react";
 
 export const ContactAnimation = () => {
-  const orbitDuration = 4;
+  const orbitDuration = 5; // seconds for full orbit
+  const [planeState, setPlaneState] = useState({ x: 0, y: 0, scale: 1, opacity: 1, rotation: 0 });
+  const startTimeRef = useRef<number | null>(null);
+
+  // Ellipse parameters
+  const radiusX = 130;
+  const radiusY = 100;
+
+  useAnimationFrame((time) => {
+    if (startTimeRef.current === null) {
+      startTimeRef.current = time;
+    }
+    
+    const elapsed = (time - startTimeRef.current) / 1000;
+    const progress = (elapsed % orbitDuration) / orbitDuration;
+    
+    // Angle in radians (starting from bottom, going clockwise)
+    const angle = progress * Math.PI * 2 - Math.PI / 2;
+    
+    // Calculate position on ellipse
+    const x = Math.cos(angle) * radiusX;
+    const y = Math.sin(angle) * radiusY;
+    
+    // Calculate scale and opacity based on Y position
+    // When y is positive (bottom/front), plane is larger and brighter
+    // When y is negative (top/back), plane is smaller and dimmer
+    const normalizedY = (y + radiusY) / (radiusY * 2); // 0 to 1
+    const scale = 0.5 + normalizedY * 0.7; // 0.5 to 1.2
+    const opacity = 0.4 + normalizedY * 0.6; // 0.4 to 1
+    
+    // Rotation: plane head points in direction of travel
+    // Derivative of ellipse: tangent direction
+    const tangentX = -Math.sin(angle) * radiusX;
+    const tangentY = Math.cos(angle) * radiusY;
+    const rotation = Math.atan2(tangentY, tangentX) * (180 / Math.PI);
+    
+    setPlaneState({ x, y, scale, opacity, rotation });
+  });
 
   return (
     <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
-      {/* Morphing background blob */}
-      <motion.div
-        className="absolute inset-0"
-        animate={{
-          scale: [1, 1.05, 1, 0.98, 1],
-          borderRadius: ["30% 70% 70% 30% / 30% 30% 70% 70%", "50% 50% 50% 50%", "40% 60% 60% 40% / 60% 40% 40% 60%", "30% 70% 70% 30% / 30% 30% 70% 70%"],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      >
-        <div className="w-full h-full bg-muted/40 rounded-full blur-xl" />
-      </motion.div>
+      {/* Single subtle background blob */}
+      <div className="absolute inset-4 md:inset-8">
+        <div className="w-full h-full bg-muted/30 rounded-full blur-2xl" />
+      </div>
 
-      {/* Inner background ring */}
-      <motion.div
-        className="absolute inset-8 md:inset-12"
-        animate={{
-          scale: [1, 1.02, 1, 0.98, 1],
-          borderRadius: ["40% 60% 60% 40% / 40% 40% 60% 60%", "50% 50% 50% 50%", "35% 65% 65% 35% / 65% 35% 35% 65%", "40% 60% 60% 40% / 40% 40% 60% 60%"],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 0.2,
-        }}
-      >
-        <div className="w-full h-full bg-muted/30 rounded-full" />
-      </motion.div>
-
-      {/* Floating envelope container */}
-      <motion.div
-        className="absolute inset-0 flex items-center justify-center"
-        animate={{
-          y: [0, -8, 0, 8, 0],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      >
+      {/* Static envelope container - no floating */}
+      <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative w-48 h-36 md:w-64 md:h-48">
           {/* Envelope body */}
           <div className="absolute inset-0 bg-card border border-border/50 rounded-lg shadow-2xl overflow-hidden">
@@ -59,6 +59,7 @@ export const ContactAnimation = () => {
             {/* Envelope flap (animated open/close) */}
             <motion.div
               className="absolute -top-1 left-0 right-0 h-16 md:h-20 origin-bottom"
+              style={{ perspective: 400 }}
               animate={{
                 rotateX: [180, 180, 0, 0, 180],
               }}
@@ -111,18 +112,8 @@ export const ContactAnimation = () => {
             </div>
           </motion.div>
 
-          {/* Contact card */}
-          <motion.div
-            className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-28 h-16 md:w-36 md:h-20 bg-background/95 rounded-lg shadow-xl border border-border/50 p-2 md:p-3"
-            animate={{
-              rotate: [3, 5, 3, 1, 3],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
+          {/* Contact card - static, no rotation */}
+          <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-28 h-16 md:w-36 md:h-20 bg-background/95 rounded-lg shadow-xl border border-border/50 p-2 md:p-3 rotate-3">
             <div className="flex gap-2 md:gap-3 items-start">
               {/* Avatar circle */}
               <div className="w-8 h-8 md:w-10 md:h-10 bg-muted rounded-full flex items-center justify-center flex-shrink-0">
@@ -138,47 +129,46 @@ export const ContactAnimation = () => {
                 <div className="h-1 md:h-1.5 bg-muted-foreground/30 rounded-full w-4/5" />
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Orbiting paper plane using circular path */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          className="absolute w-10 h-10 md:w-12 md:h-12"
+      {/* Orbiting paper plane - smooth elliptical path */}
+      <div 
+        className="absolute pointer-events-none"
+        style={{
+          left: "50%",
+          top: "50%",
+          width: 0,
+          height: 0,
+        }}
+      >
+        <div
           style={{
-            left: "50%",
-            top: "50%",
-            marginLeft: "-20px",
-            marginTop: "-24px",
-          }}
-          animate={{
-            x: [120, 85, 0, -85, -120, -85, 0, 85, 120],
-            y: [0, -85, -120, -85, 0, 85, 120, 85, 0],
-            scale: [1.2, 1, 0.6, 0.5, 0.6, 0.7, 1.2, 1.3, 1.2],
-            opacity: [1, 0.9, 0.5, 0.35, 0.5, 0.7, 1, 1, 1],
-            zIndex: [10, 5, 0, 0, 0, 5, 10, 10, 10],
-            rotate: [-45, -90, -135, -180, -225, -270, -315, -360, -405],
-          }}
-          transition={{
-            duration: orbitDuration,
-            repeat: Infinity,
-            ease: "linear",
-            times: [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1],
+            position: "absolute",
+            transform: `translate(${planeState.x}px, ${planeState.y}px) scale(${planeState.scale}) rotate(${planeState.rotation}deg)`,
+            opacity: planeState.opacity,
+            zIndex: planeState.y > 0 ? 10 : 0,
+            transformOrigin: "center center",
+            marginLeft: "-16px",
+            marginTop: "-16px",
           }}
         >
-          <svg viewBox="0 0 24 24" className="w-full h-full text-muted-foreground drop-shadow-lg">
+          <svg 
+            viewBox="0 0 24 24" 
+            className="w-8 h-8 md:w-10 md:h-10 text-muted-foreground drop-shadow-md"
+          >
             <path
               fill="currentColor"
               d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
             />
             <path
               fill="currentColor"
-              opacity="0.6"
+              opacity="0.5"
               d="M2 10l15 2-15 2V10z"
             />
           </svg>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
