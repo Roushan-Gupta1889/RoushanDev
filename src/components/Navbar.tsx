@@ -92,9 +92,12 @@ export const Navbar = () => {
           <Button 
             variant="default" 
             className="rounded-full px-6 font-semibold gap-2 whitespace-nowrap"
+            asChild
           >
-            <MessageCircle className="w-4 h-4" />
-            Let's Connect
+            <a href="#contact">
+              <MessageCircle className="w-4 h-4" />
+              Let's Connect
+            </a>
           </Button>
         </motion.div>
 
@@ -133,9 +136,11 @@ export const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <Button variant="default" className="w-full mt-4 rounded-full font-semibold gap-2">
-              <MessageCircle className="w-4 h-4" />
-              Let's Connect
+            <Button variant="default" className="w-full mt-4 rounded-full font-semibold gap-2" asChild>
+              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                <MessageCircle className="w-4 h-4" />
+                Let's Connect
+              </a>
             </Button>
           </div>
         </motion.div>
