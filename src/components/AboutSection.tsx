@@ -56,11 +56,11 @@ export const AboutSection = () => {
             <div className="flex flex-wrap gap-4">
               <div className="flex items-center gap-2 text-sm">
                 <Calendar className="w-4 h-4 text-primary" />
-                <span className="text-muted-foreground">5+ Years Experience</span>
+                <span className="text-muted-foreground">2+ Years Experience</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span className="text-muted-foreground">Based in San Francisco</span>
+                <span className="text-muted-foreground">India Bengaluru</span>
               </div>
             </div>
           </motion.div>

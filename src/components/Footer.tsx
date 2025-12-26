@@ -57,8 +57,8 @@ export const Footer = () => {
 
         <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-border/50 text-center space-y-2">
           <p className="text-xs md:text-sm text-muted-foreground">
-            © {new Date().getFullYear()} DevFolio. Built with passion and lots of{" "}
-            <span className="text-primary">☕</span>
+            © {new Date().getFullYear()} RoushanDev. Built with passion and lots of{" "}
+            <span className="text-primary">❤️</span>
           </p>
           <p className="text-xs text-muted-foreground/70">
             Illustrations by{" "}

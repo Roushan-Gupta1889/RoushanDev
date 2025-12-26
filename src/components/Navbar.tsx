@@ -83,7 +83,7 @@ export const Navbar = () => {
         overflow: "hidden"
       }}>
           <Button variant="default" className="rounded-full px-6 font-semibold gap-2 whitespace-nowrap" asChild>
-            <a href="#contact">
+            <a href="https://wa.me/919341101889" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="w-4 h-4" />
               Let's Connect
             </a>

@@ -4,41 +4,57 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce solution with real-time inventory, payments, and admin dashboard.",
-    tech: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
+    title: "Chrome Extension for Google Meet",
+    description: "ClassEngage is a comprehensive solution that brings interactive polling, quizzes, and attendance tracking to your online classroom. It consists of a Chrome extension for students and a web-based dashboard for teachers, all powered by Firebase for real-time synchronization.",
+    tech: ["React", "Manifest V3", "Firebase"],
     color: "from-cyan-500/20 to-blue-500/20",
   },
   {
-    title: "SaaS Dashboard",
-    description: "Analytics dashboard for a B2B SaaS product with data visualization and team collaboration.",
-    tech: ["React", "D3.js", "GraphQL", "Tailwind"],
+    title: "Hospital-Management-System",
+    description: "A comprehensive web-based Hospital Management System built with Flask (backend) and Vue.js (frontend) that enables efficient management of patients, doctors, appointments, and treatments.",
+    tech: ["Flask", "Vue.js", "SQLAlchemy(ORM)"],
     color: "from-purple-500/20 to-pink-500/20",
   },
   {
-    title: "Developer Community",
-    description: "Social platform for developers to share code snippets, tutorials, and connect with peers.",
-    tech: ["Next.js", "Supabase", "MDX", "Framer Motion"],
+    title: "Homexa – Smart PG Finder",
+    description: "Smarter stays for students — powered by Homexa.Homexa is a full-stack web platform designed to help students and young professionals find verified and affordable PG accommodations. Built using Flask and SQLite, it offers clean UI, secure authentication, and easy PG search/filtering.",
+    tech: ["HTML", "Css(Bootstrap)","JS(API Fetch)","Supabase(Postgrest)"],
     color: "from-green-500/20 to-emerald-500/20",
   },
   {
-    title: "AI Writing Assistant",
-    description: "Chrome extension that uses AI to help users write better emails and documents.",
-    tech: ["React", "OpenAI", "Chrome APIs", "TypeScript"],
+    title: "Website for writer & poet",
+    description: " A personal website for a writer and poet, featuring a blog, portfolio of works, and contact form.",
+    tech: ["React", "Vite(Bundle)", "Tailwind CSS"],
     color: "from-orange-500/20 to-red-500/20",
   },
   {
-    title: "Real Estate Finder",
-    description: "Property search platform with interactive maps, filters, and virtual tour integration.",
-    tech: ["React", "Mapbox", "Node.js", "MongoDB"],
+    title: "GrowSphere - Agency website",
+    description: "A modern, responsive website for a digital marketing agency, showcasing services, portfolio, and client testimonials.",
+    tech: ["Html", "Css(Bootstrap)", "JS","Supabase","Google Auth"],
     color: "from-blue-500/20 to-indigo-500/20",
   },
   {
-    title: "Fitness Tracker",
-    description: "Mobile-first web app for tracking workouts, nutrition, and progress with social features.",
-    tech: ["React", "PWA", "Firebase", "Chart.js"],
+    title: "Blessedbite",
+    description: "Food delivery app that allows users to order food from local restaurants and have it delivered to their doorstep.",
+    tech: ["HTML", "CSS","javascript"],
     color: "from-pink-500/20 to-rose-500/20",
   },
+  {
+    title: "Client-Website",
+    description: "Cricket fantasy league website that allows users to create and join fantasy cricket leagues, manage teams, and track player performance.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    color: "from-pink-500/20 to-rose-500/20",
+  },{
+    title: "Tools Website",
+    description: "A web application that provides various online tools Students, Professionals, and Developers such as PDF converters, image editors, code formatters, and more.",
+    tech: ["Ghostscript","Cloudmersive API","Supabase"],
+    color: "from-pink-500/20 to-rose-500/20",
+  },{
+    title: "Vechile Parking Management System",
+    description: "A web application that allows users to find and reserve parking spots in advance, as well as manage their parking history and payments.",
+    tech: ["Flask"],
+    color: "from-pink-500/20 to-rose-500/20",
+  }
 ];
 
 export const ProjectsSection = () => {

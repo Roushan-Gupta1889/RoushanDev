@@ -45,20 +45,24 @@ export const CTASection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
-              <Button size="default" className="font-semibold group glow-box w-full sm:w-auto">
+                <Button 
+                size="default" 
+                className="font-semibold group glow-box w-full sm:w-auto"
+                onClick={() => window.location.href = "mailto:roushanguptajan01@gmail.com"}
+                >
                 <Mail className="w-4 h-4 mr-2" />
                 Get In Touch
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button size="default" variant="outline" className="font-semibold w-full sm:w-auto">
+                </Button>
+                <Button size="default" variant="outline" className="font-semibold w-full sm:w-auto" onClick={() => window.open("https://wa.me/919341101889", "_blank")}>
                 Schedule a Call
-              </Button>
+                </Button>
             </div>
 
             <p className="text-xs md:text-sm text-muted-foreground mt-6 md:mt-8">
               Or email me directly at{" "}
-              <a href="mailto:hello@devfolio.com" className="text-primary hover:underline">
-                hello@devfolio.com
+              <a href="mailto:roushanguptajan01@gmail.com" className="text-primary hover:underline">
+                roushanguptajan01@gmail.com
               </a>
             </p>
           </motion.div>
