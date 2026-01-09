@@ -81,8 +81,8 @@ export const HeroSection = () => {
               </span>
             </motion.div>
 
-            
-            
+
+
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -115,7 +115,13 @@ export const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center lg:justify-start"
             >
-              <Button size="default" className="font-semibold group w-full sm:w-auto text-sm sm:text-base">
+              <Button
+                size="default"
+                className="font-semibold group w-full sm:w-auto text-sm sm:text-base"
+                onClick={() => {
+                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 View My Work
                 <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>

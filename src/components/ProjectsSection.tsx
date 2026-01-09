@@ -7,7 +7,7 @@ import { ProjectImageCarousel } from "@/components/ProjectImageCarousel";
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="section-padding relative">
+    <section id="projects" className="section-padding relative pt-16 pb-16 sm:pt-20 md:pt-0">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
