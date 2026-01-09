@@ -1,61 +1,9 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const projects = [
-  {
-    title: "Chrome Extension for Google Meet",
-    description: "ClassEngage is a comprehensive solution that brings interactive polling, quizzes, and attendance tracking to your online classroom. It consists of a Chrome extension for students and a web-based dashboard for teachers, all powered by Firebase for real-time synchronization.",
-    tech: ["React", "Manifest V3", "Firebase"],
-    color: "from-cyan-500/20 to-blue-500/20",
-  },
-  {
-    title: "Hospital-Management-System",
-    description: "A comprehensive web-based Hospital Management System built with Flask (backend) and Vue.js (frontend) that enables efficient management of patients, doctors, appointments, and treatments.",
-    tech: ["Flask", "Vue.js", "SQLAlchemy(ORM)"],
-    color: "from-purple-500/20 to-pink-500/20",
-  },
-  {
-    title: "Homexa – Smart PG Finder",
-    description: "Smarter stays for students — powered by Homexa.Homexa is a full-stack web platform designed to help students and young professionals find verified and affordable PG accommodations. Built using Flask and SQLite, it offers clean UI, secure authentication, and easy PG search/filtering.",
-    tech: ["HTML", "Css(Bootstrap)","JS(API Fetch)","Supabase(Postgrest)"],
-    color: "from-green-500/20 to-emerald-500/20",
-  },
-  {
-    title: "Website for writer & poet",
-    description: " A personal website for a writer and poet, featuring a blog, portfolio of works, and contact form.",
-    tech: ["React", "Vite(Bundle)", "Tailwind CSS"],
-    color: "from-orange-500/20 to-red-500/20",
-  },
-  {
-    title: "GrowSphere - Agency website",
-    description: "A modern, responsive website for a digital marketing agency, showcasing services, portfolio, and client testimonials.",
-    tech: ["Html", "Css(Bootstrap)", "JS","Supabase","Google Auth"],
-    color: "from-blue-500/20 to-indigo-500/20",
-  },
-  {
-    title: "Blessedbite",
-    description: "Food delivery app that allows users to order food from local restaurants and have it delivered to their doorstep.",
-    tech: ["HTML", "CSS","javascript"],
-    color: "from-pink-500/20 to-rose-500/20",
-  },
-  {
-    title: "Client-Website",
-    description: "Cricket fantasy league website that allows users to create and join fantasy cricket leagues, manage teams, and track player performance.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    color: "from-pink-500/20 to-rose-500/20",
-  },{
-    title: "Tools Website",
-    description: "A web application that provides various online tools Students, Professionals, and Developers such as PDF converters, image editors, code formatters, and more.",
-    tech: ["Ghostscript","Cloudmersive API","Supabase"],
-    color: "from-pink-500/20 to-rose-500/20",
-  },{
-    title: "Vechile Parking Management System",
-    description: "A web application that allows users to find and reserve parking spots in advance, as well as manage their parking history and payments.",
-    tech: ["Flask"],
-    color: "from-pink-500/20 to-rose-500/20",
-  }
-];
+import { featuredProjects } from "@/lib/projectsData";
+import { Link } from "react-router-dom";
+import { ProjectImageCarousel } from "@/components/ProjectImageCarousel";
 
 export const ProjectsSection = () => {
   return (
@@ -66,7 +14,7 @@ export const ProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <span className="text-primary font-semibold text-xs md:text-sm uppercase tracking-wider mb-3 md:mb-4 block">
             Portfolio
@@ -75,73 +23,141 @@ export const ProjectsSection = () => {
             Featured <span className="text-gradient">Projects</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-lg px-4 md:px-0">
-            A selection of projects I've worked on, showcasing my expertise in building modern web applications.
+            Showcasing my best work in building modern, scalable web applications.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {projects.map((project, index) => (
+        {/* Featured Projects - Horizontal Rows */}
+        <div className="space-y-8 md:space-y-12 mb-12 md:mb-16">
+          {featuredProjects.map((project, index) => (
             <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
+              key={project.id}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="group glass-card overflow-hidden hover-lift"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className={`glass-card overflow-hidden group hover-lift ${index % 2 === 0 ? "" : ""
+                }`}
             >
-              {/* Project Preview Area */}
-              <div className={`h-36 sm:h-40 md:h-48 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-                <div className="absolute top-3 md:top-4 right-3 md:right-4 flex gap-2 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors">
-                    <Github className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                  </button>
-                  <button className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors">
-                    <ExternalLink className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                  </button>
-                </div>
-                {/* Decorative code lines */}
-                <div className="absolute bottom-3 md:bottom-4 left-3 md:left-4 right-3 md:right-4 space-y-1 opacity-30">
-                  <div className="h-1.5 md:h-2 bg-foreground/20 rounded w-3/4" />
-                  <div className="h-1.5 md:h-2 bg-foreground/20 rounded w-1/2" />
-                  <div className="h-1.5 md:h-2 bg-foreground/20 rounded w-2/3" />
-                </div>
-              </div>
+              <div className={`grid md:grid-cols-2 gap-0 ${index % 2 === 1 ? "md:grid-flow-dense" : ""}`}>
+                {/* Image Section */}
+                <div className={`relative overflow-hidden ${index % 2 === 1 ? "md:col-start-2" : ""}`}>
+                  <div className={`h-56 sm:h-64 md:h-full bg-gradient-to-br ${project.color} relative`}>
+                    {project.images && project.images.length > 0 ? (
+                      <ProjectImageCarousel
+                        images={project.images}
+                        alt={project.title}
+                        color={project.color}
+                      />
+                    ) : project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                        {/* Decorative code lines */}
+                        <div className="absolute bottom-4 left-4 right-4 space-y-2 opacity-30">
+                          <div className="h-3 bg-foreground/20 rounded w-3/4" />
+                          <div className="h-3 bg-foreground/20 rounded w-1/2" />
+                          <div className="h-3 bg-foreground/20 rounded w-2/3" />
+                          <div className="h-3 bg-foreground/20 rounded w-5/6" />
+                        </div>
+                      </>
+                    )}
 
-              {/* Project Info */}
-              <div className="p-4 md:p-6">
-                <h3 className="text-base md:text-xl font-display font-bold mb-1.5 md:mb-2 text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
-                  {project.title}
-                  <ArrowUpRight className="w-3.5 h-3.5 md:w-4 md:h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </h3>
-                <p className="text-muted-foreground text-xs md:text-sm mb-3 md:mb-4 leading-relaxed line-clamp-2 md:line-clamp-none">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5 md:gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-1.5 md:px-2 py-0.5 md:py-1 rounded-md bg-secondary text-[10px] md:text-xs font-medium text-muted-foreground"
-                    >
-                      {tech}
+                    {/* Overlay with links */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-12 h-12 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-all hover:scale-110"
+                        >
+                          <Github className="w-5 h-5" />
+                        </a>
+                      )}
+                      {project.demo && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-12 h-12 rounded-full bg-primary backdrop-blur-sm flex items-center justify-center hover:bg-primary/90 transition-all hover:scale-110"
+                        >
+                          <ExternalLink className="w-5 h-5 text-primary-foreground" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className={`p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-center ${index % 2 === 1 ? "md:col-start-1 md:row-start-1" : ""}`}>
+                  <div className="mb-2 sm:mb-3 md:mb-4">
+                    <span className="text-[10px] sm:text-xs font-semibold text-primary uppercase tracking-wider">
+                      Featured Project
                     </span>
-                  ))}
+                  </div>
+
+                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-display font-bold mb-2 sm:mb-3 md:mb-4 text-foreground group-hover:text-gradient transition-colors">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-muted-foreground text-xs sm:text-sm md:text-base leading-relaxed mb-3 sm:mb-4 md:mb-6">
+                    {project.longDescription || project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-5 md:mb-6">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-secondary/50 text-[10px] sm:text-xs font-medium text-foreground border border-border/50"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                    {project.github && (
+                      <Button variant="outline" size="sm" asChild>
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-4 h-4 mr-2" />
+                          Code
+                        </a>
+                      </Button>
+                    )}
+                    {project.demo && (
+                      <Button size="sm" asChild>
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live Demo
+                        </a>
+                      </Button>
+                    )}
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
+        {/* View All Projects Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center mt-12"
+          className="text-center"
         >
-          <Button variant="outline" size="lg" className="font-semibold">
-            View All Projects
-            <ArrowUpRight className="w-4 h-4 ml-2" />
+          <Button variant="outline" size="lg" className="font-semibold group" asChild>
+            <Link to="/projects">
+              View All Projects
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </Button>
         </motion.div>
       </div>
