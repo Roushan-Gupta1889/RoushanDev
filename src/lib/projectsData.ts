@@ -5,10 +5,15 @@ import iitmHelperImg4 from "../assets/IITM-Helper4.png";
 import allGenzToolsImg from "../assets/All-genz-tools.png";
 import allGenzToolsImg2 from "../assets/All-genz-tools2.png";
 import allGenzToolsImg3 from "../assets/All-genz-tools3.png";
-import allGenzToolsImg4 from "../assets/All-genz-tools4.png";
 import classEngageImg from "../assets/ClassEngage.png";
 import classEngageImg2 from "../assets/ClassEngage2.png";
 import classEngageImg3 from "../assets/ClassEngage3.png";
+import homexaImg from "../assets/Homexa.png";
+import writerPoetImg from "../assets/writer-poet.png";
+import growSphereImg from "../assets/Grow-sphere.png";
+import blessedBiteImg from "../assets/blessed-Bite.png";
+import cricketImg from "../assets/Cricket.png";
+import guaSevaImg from "../assets/Gua-seva.png";
 
 export interface Project {
   id: string;
@@ -77,6 +82,8 @@ export const allProjects: Project[] = [
     description: "Smarter stays for students — powered by Homexa. A full-stack web platform designed to help students and young professionals find verified and affordable PG accommodations.",
     tech: ["HTML", "CSS(Bootstrap)", "JS(API Fetch)", "Supabase(Postgrest)"],
     color: "from-green-500/20 to-emerald-500/20",
+    image: homexaImg,
+    demo: "https://homexa.vercel.app/",
   },
   {
     id: "writer-website",
@@ -84,6 +91,8 @@ export const allProjects: Project[] = [
     description: "A personal website for a writer and poet, featuring a blog, portfolio of works, and contact form.",
     tech: ["React", "Vite(Bundle)", "Tailwind CSS"],
     color: "from-orange-500/20 to-red-500/20",
+    image: writerPoetImg,
+    demo: "https://shivani-gupta-rho.vercel.app/",
   },
   {
     id: "growsphere",
@@ -91,6 +100,17 @@ export const allProjects: Project[] = [
     description: "A modern, responsive website for a digital marketing agency, showcasing services, portfolio, and client testimonials.",
     tech: ["HTML", "CSS(Bootstrap)", "JS", "Supabase", "Google Auth"],
     color: "from-blue-500/20 to-indigo-500/20",
+    image: growSphereImg,
+    demo: "https://grow-sphere-eta.vercel.app/",
+  },
+  {
+    id: "gua-seva",
+    title: "Gua-Seva - Cow Donation & Social Welfare",
+    description: "A compassionate platform dedicated to cow protection and social welfare. Enables users to donate for cow care, medical treatment, and support various social welfare initiatives.",
+    tech: ["HTML", "CSS", "JavaScript", ],
+    color: "from-amber-500/20 to-yellow-500/20",
+    image: guaSevaImg,
+    demo: "https://gau-seva-ten.vercel.app/",
   },
   {
     id: "blessedbite",
@@ -98,6 +118,8 @@ export const allProjects: Project[] = [
     description: "Food delivery app that allows users to order food from local restaurants and have it delivered to their doorstep.",
     tech: ["HTML", "CSS", "JavaScript"],
     color: "from-pink-500/20 to-rose-500/20",
+    image: blessedBiteImg,
+    demo: "https://blessed-bite.vercel.app/",
   },
   {
     id: "cricket-fantasy",
@@ -105,6 +127,8 @@ export const allProjects: Project[] = [
     description: "Cricket fantasy league website that allows users to create and join fantasy cricket leagues, manage teams, and track player performance.",
     tech: ["HTML", "CSS", "JavaScript"],
     color: "from-pink-500/20 to-rose-500/20",
+    image: cricketImg,
+    demo: "https://cricket-guru-pulse.vercel.app/",
   },
 ];
 

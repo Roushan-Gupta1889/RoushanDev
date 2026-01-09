@@ -1,73 +1,197 @@
-# Welcome to your Lovable project
+# RoushanDev Portfolio
 
-## Project info
+A modern, responsive portfolio website showcasing professional skills, projects, and achievements with stunning animations and interactive components.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🌟 Features
 
-## How can I edit this code?
+### Core Sections
+- **Hero Section** - Eye-catching introduction with animated elements
+- **Services Section** - Professional services offered with detailed descriptions
+- **About Section** - Personal background and professional journey
+- **Skills Section** - Technical skills and competencies showcase
+- **Projects Section** - Portfolio of completed projects with details
+- **Achievements Section** - Professional certifications carousel with auto-play
+- **CTA Section** - Call-to-action for engagement
+- **Contact Footer** - Professional footer with contact information
 
-There are several ways of editing your application.
+### Interactive Components
+- **Certificate Carousel** - Smooth sliding carousel with:
+  - Auto-play functionality (5-second intervals)
+  - Left/Right navigation arrows
+  - Dot indicators for quick navigation
+  - Smooth spring-based animations
+  - Full certificate image display
+- **Responsive Navigation** - Mobile-friendly navbar
+- **Smooth Animations** - Framer Motion powered transitions
+- **Dark/Light Theme** - Theme switching capability
 
-**Use Lovable**
+## 🛠️ Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### Frontend Framework
+- **React 18.3.1** - Modern React with hooks
+- **TypeScript** - Type-safe development
+- **Vite** - Lightning-fast build tool
 
-Changes made via Lovable will be committed automatically to this repo.
+### UI & Styling
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - High-quality React components
+- **Radix UI** - Accessible component primitives
+- **Framer Motion** - Advanced animations
+- **Lucide React** - Beautiful icon library
 
-**Use your preferred IDE**
+### State & Routing
+- **React Router DOM** - Client-side routing
+- **TanStack Query** - Server state management
+- **React Hook Form** - Form handling
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Additional Libraries
+- **next-themes** - Theme management
+- **class-variance-authority** - Component variants
+- **tailwind-merge** - Tailwind class merging
+- **sonner** - Toast notifications
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 📦 Installation
 
-Follow these steps:
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or bun package manager
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+### Setup Steps
+
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to project directory
+cd RoushanDeV(portfolio)
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
+# or
+bun install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
+# or
+bun dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🚀 Available Scripts
 
-**Use GitHub Codespaces**
+```bash
+# Start development server
+npm run dev
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Build for production
+npm run build
 
-## What technologies are used for this project?
+# Build for development mode
+npm run build:dev
 
-This project is built with:
+# Preview production build
+npm run preview
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+# Run ESLint
+npm run lint
+```
 
-## How can I deploy this project?
+## 📁 Project Structure
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+```
+RoushanDeV(portfolio)/
+├── src/
+│   ├── components/          # React components
+│   │   ├── ui/             # shadcn/ui components
+│   │   ├── HeroSection.tsx
+│   │   ├── AboutSection.tsx
+│   │   ├── SkillsSection.tsx
+│   │   ├── ProjectsSection.tsx
+│   │   ├── AchievementsSection.tsx
+│   │   ├── ServicesSection.tsx
+│   │   ├── CTASection.tsx
+│   │   ├── Navbar.tsx
+│   │   └── Footer.tsx
+│   ├── pages/              # Page components
+│   │   ├── Index.tsx
+│   │   ├── Projects.tsx
+│   │   └── NotFound.tsx
+│   ├── hooks/              # Custom React hooks
+│   ├── lib/                # Utility functions
+│   ├── assets/             # Images and static files
+│   ├── App.tsx             # Main App component
+│   ├── main.tsx            # Entry point
+│   └── index.css           # Global styles
+├── public/                 # Public assets
+├── components.json         # shadcn/ui config
+├── tailwind.config.ts      # Tailwind configuration
+├── vite.config.ts          # Vite configuration
+└── package.json            # Dependencies
+```
 
-## Can I connect a custom domain to my Lovable project?
+## 🎨 Key Features Implementation
 
-Yes, you can!
+### Certificate Carousel
+The achievements section features a custom-built carousel with:
+- Smooth horizontal slide transitions
+- Auto-play with 5-second intervals
+- Manual navigation via arrow buttons
+- Clickable dot indicators
+- Spring-based physics animations
+- Responsive design for all screen sizes
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Responsive Design
+- Mobile-first approach
+- Breakpoints: sm, md, lg, xl
+- Optimized for all device sizes
+- Touch-friendly interactions
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Performance Optimizations
+- Code splitting with React Router
+- Lazy loading of components
+- Optimized images
+- Minimal bundle size
+
+## 🌐 Deployment
+
+### Build for Production
+```bash
+npm run build
+```
+
+The optimized production build will be in the `dist/` directory.
+
+### Deploy Options
+- **Vercel** - Recommended for React apps
+- **Netlify** - Easy deployment with Git integration
+- **GitHub Pages** - Free hosting for static sites
+- **Custom Server** - Deploy the `dist/` folder
+
+## 🔧 Configuration
+
+### Tailwind CSS
+Customize theme in `tailwind.config.ts`:
+- Colors
+- Fonts
+- Spacing
+- Breakpoints
+- Animations
+
+### shadcn/ui Components
+Configure in `components.json`:
+- Component style
+- Color scheme
+- CSS variables
+
+## 📝 License
+
+This project is private and proprietary.
+
+## 👤 Author
+
+**Roushan Gupta**
+
+---
+
+Built with ❤️ using React, TypeScript, and Tailwind CSS
