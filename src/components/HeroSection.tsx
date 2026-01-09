@@ -86,7 +86,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-display font-bold leading-tight mb-2 sm:mb-3 md:mb-4"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold leading-tight mb-2 sm:mb-3 md:mb-4"
             >
               <span className="block mb-1">I Build</span>
               <span className="text-gradient inline-block min-w-[200px] sm:min-w-[260px]">
@@ -100,7 +100,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-5 md:mb-6"
+              className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-7 md:mb-8 max-w-xl"
             >
               Frontend developer & product builder specializing in creating
               fast, accessible, and beautifully crafted web experiences
