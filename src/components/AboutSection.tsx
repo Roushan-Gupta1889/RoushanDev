@@ -39,7 +39,7 @@ export const AboutSection = () => {
             <div className="space-y-3 md:space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed mb-6 md:mb-8">
               <p>
                 I'm a frontend developer with a passion for creating digital experiences 
-                that don't just work—they inspire. With over 5 years in the industry, 
+                that don't just work—they inspire. With over 2 years in the industry, 
                 I've helped startups and enterprises alike build products that users genuinely love.
               </p>
               <p>

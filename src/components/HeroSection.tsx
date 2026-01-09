@@ -72,6 +72,7 @@ export const HeroSection = () => {
                 backdrop-blur
                 shadow-[0_0_20px_rgba(16,185,129,0.25)]
                 mb-3 sm:mb-4
+                lg:mt-8
               "
             >
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -80,13 +81,13 @@ export const HeroSection = () => {
               </span>
             </motion.div>
 
-            <br />
-            <br />
+            
+            
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-tight mb-2 sm:mb-3 md:mb-4"
+              className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold leading-tight mb-2 sm:mb-3 md:mb-4"
             >
               <span className="block mb-1">I Build</span>
               <span className="text-gradient inline-block min-w-[200px] sm:min-w-[260px]">
@@ -100,7 +101,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed mb-6 sm:mb-7 md:mb-8 max-w-xl"
+              className="text-base sm:text-lg md:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-6 sm:mb-7 md:mb-8 max-w-xl"
             >
               Frontend developer & product builder specializing in creating
               fast, accessible, and beautifully crafted web experiences
@@ -130,15 +131,15 @@ export const HeroSection = () => {
               className="grid grid-cols-3 gap-4 md:gap-6 mt-6 md:mt-8 pt-4 md:pt-6 border-t border-border/50 max-w-md mx-auto lg:mx-0"
             >
               {[
-                { value: "2+", label: "Years Experience" },
-                { value: "50+", label: "Projects Completed" },
+                { value: "2+", label: "Experience" },
+                { value: "50+", label: "Projects " },
                 { value: "25+", label: "Happy Clients" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center lg:text-left">
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gradient mb-1">
+                  <div className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-display font-bold text-gradient mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-xs sm:text-sm md:text-base text-muted-foreground leading-tight">
+                  <div className="text-xs sm:text-sm md:text-sm text-muted-foreground leading-tight">
                     {stat.label}
                   </div>
                 </div>
