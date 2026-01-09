@@ -14,6 +14,7 @@ import growSphereImg from "../assets/Grow-sphere.png";
 import blessedBiteImg from "../assets/blessed-Bite.png";
 import cricketImg from "../assets/Cricket.png";
 import guaSevaImg from "../assets/Gua-seva.png";
+import hmsImg from "../assets/HMS.png";
 
 export interface Project {
   id: string;
@@ -75,6 +76,8 @@ export const allProjects: Project[] = [
     description: "A comprehensive web-based Hospital Management System built with Flask (backend) and Vue.js (frontend) that enables efficient management of patients, doctors, appointments, and treatments.",
     tech: ["Flask", "Vue.js", "SQLAlchemy(ORM)"],
     color: "from-purple-500/20 to-pink-500/20",
+    image: hmsImg,
+    demo: "https://hospital-management-system-cm13.vercel.app/",
   },
   {
     id: "homexa",
@@ -107,7 +110,7 @@ export const allProjects: Project[] = [
     id: "gua-seva",
     title: "Gua-Seva - Cow Donation & Social Welfare",
     description: "A compassionate platform dedicated to cow protection and social welfare. Enables users to donate for cow care, medical treatment, and support various social welfare initiatives.",
-    tech: ["HTML", "CSS", "JavaScript", ],
+    tech: ["HTML", "CSS", "JavaScript",],
     color: "from-amber-500/20 to-yellow-500/20",
     image: guaSevaImg,
     demo: "https://gau-seva-ten.vercel.app/",
