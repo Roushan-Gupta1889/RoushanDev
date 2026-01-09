@@ -86,7 +86,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold leading-tight mb-2 sm:mb-3 md:mb-4"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-tight mb-2 sm:mb-3 md:mb-4"
             >
               <span className="block mb-1">I Build</span>
               <span className="text-gradient inline-block min-w-[200px] sm:min-w-[260px]">
@@ -100,7 +100,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mb-6 sm:mb-7 md:mb-8 max-w-xl"
+              className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed mb-6 sm:mb-7 md:mb-8 max-w-xl"
             >
               Frontend developer & product builder specializing in creating
               fast, accessible, and beautifully crafted web experiences
@@ -135,10 +135,10 @@ export const HeroSection = () => {
                 { value: "25+", label: "Happy Clients" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center lg:text-left">
-                  <div className="text-lg md:text-xl lg:text-2xl font-display font-bold text-gradient mb-0.5">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gradient mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-[10px] md:text-xs text-muted-foreground leading-tight">
+                  <div className="text-xs sm:text-sm md:text-base text-muted-foreground leading-tight">
                     {stat.label}
                   </div>
                 </div>
