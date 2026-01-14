@@ -81,7 +81,7 @@ export const AchievementsSection = () => {
     };
 
     return (
-        <section className="section-padding relative bg-secondary/20 py-20">
+        <section id="certificates" className="section-padding relative bg-secondary/20 py-20">
             <div className="container-custom">
                 {/* Header */}
                 <motion.div
