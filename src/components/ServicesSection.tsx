@@ -26,7 +26,7 @@ const services = [
 
 export const ServicesSection = () => {
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section id="services" className="section-padding relative overflow-hidden">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

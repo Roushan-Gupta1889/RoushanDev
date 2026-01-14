@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Code2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 const navLinks = [{
   name: "Home",
   href: "#",
@@ -27,7 +27,49 @@ const navLinks = [{
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("Home");
+  const [activeLink, setActiveLink] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Update active link based on current route
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setActiveLink("Home");
+    } else {
+      setActiveLink(""); // No active link on other pages
+    }
+  }, [location.pathname]);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, name: string) => {
+    e.preventDefault();
+    setActiveLink(name);
+
+    if (href === "#") {
+      navigate("/");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const sectionId = href.replace("#", "");
+
+    if (location.pathname === "/") {
+      // Already on homepage, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // On another page, navigate to homepage with hash
+      navigate(`/${href}`);
+      // Wait for navigation, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  };
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -69,7 +111,7 @@ export const Navbar = () => {
       {/* Desktop Nav - Centered Pill Container */}
       <div className="hidden md:flex items-center">
         <div className="flex items-center gap-1 bg-card/30 backdrop-blur-xl border border-border/30 rounded-full px-2 py-2">
-          {navLinks.map(link => <a key={link.name} href={link.href} onClick={() => setActiveLink(link.name)} className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeLink === link.name ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>
+          {navLinks.map(link => <a key={link.name} href={link.href} onClick={(e) => handleNavClick(e, link.href, link.name)} className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeLink === link.name ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>
             {link.name}
           </a>)}
         </div>
@@ -111,8 +153,8 @@ export const Navbar = () => {
       y: -20
     }} className="md:hidden glass-card mt-2 mx-4 rounded-2xl p-6">
       <div className="flex flex-col gap-2">
-        {navLinks.map(link => <a key={link.name} href={link.href} onClick={() => {
-          setActiveLink(link.name);
+        {navLinks.map(link => <a key={link.name} href={link.href} onClick={(e) => {
+          handleNavClick(e, link.href, link.name);
           setIsMobileMenuOpen(false);
         }} className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${activeLink === link.name ? "bg-primary text-primary-foreground" : "text-foreground hover:bg-secondary"}`}>
           {link.name}

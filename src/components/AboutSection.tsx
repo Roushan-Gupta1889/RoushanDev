@@ -73,7 +73,7 @@ export const AboutSection = () => {
                 <Github className="w-5 h-5 text-white" />
               </a>
               <a
-                href="https://www.linkedin.com/in/roushan-gupta-a8b7a8257/"
+                href="https://www.linkedin.com/in/roushan1889/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[#0A66C2] hover:bg-[#004182] flex items-center justify-center transition-all hover:scale-110"
@@ -82,7 +82,7 @@ export const AboutSection = () => {
                 <Linkedin className="w-5 h-5 text-white" />
               </a>
               <a
-                href="https://www.instagram.com/roushan_gupta18/"
+                href="https://www.instagram.com/roushan_gupta2341/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#F77737] hover:opacity-90 flex items-center justify-center transition-all hover:scale-110"
