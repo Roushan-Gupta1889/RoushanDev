@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, X } from "lucide-react"; // Added X icon for back button
 import { Button } from "@/components/ui/button";
 import fullPhoto from "../assets/full_photo.jpg";
+import resumePDF from "../assets/3rd_sem_resume(updated).pdf";
 import { useEffect, useState } from "react";
 
 export const HeroSection = () => {
@@ -125,8 +126,15 @@ export const HeroSection = () => {
                 View My Work
                 <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button size="default" variant="outline" className="font-semibold w-full sm:w-auto text-sm sm:text-base">
-                Download Resume
+              <Button
+                size="default"
+                variant="outline"
+                className="font-semibold w-full sm:w-auto text-sm sm:text-base"
+                asChild
+              >
+                <a href={resumePDF} download="Roushan_Gupta_Resume.pdf">
+                  Download Resume
+                </a>
               </Button>
             </motion.div>
 
