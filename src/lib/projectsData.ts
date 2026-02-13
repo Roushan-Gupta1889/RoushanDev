@@ -15,6 +15,10 @@ import blessedBiteImg from "../assets/blessed-Bite.png";
 import cricketImg from "../assets/Cricket.png";
 import guaSevaImg from "../assets/Gua-seva.png";
 import hmsImg from "../assets/HMS.png";
+import analyticsImg from "../assets/analytics1.png";
+import featurePlayerImg from "../assets/feature-player.png";
+import featurePlaylistsImg from "../assets/feature-playlists.png";
+import historyImg from "../assets/history1.png";
 
 export interface Project {
   id: string;
@@ -31,6 +35,19 @@ export interface Project {
 }
 
 export const allProjects: Project[] = [
+  {
+    id: "studyplus-yt",
+    title: "StudyPlus YT",
+    description: "Transform YouTube into a focused learning environment with structured playlists, timestamp-based notes, and progress tracking.",
+    longDescription: "A modern SaaS platform designed for serious learners to eliminate distractions like too many feeds, recommendations, and endless scrolling while studying.",
+    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "YouTube API"],
+    color: "from-red-500/20 to-rose-500/20",
+    image: featurePlayerImg,
+    images: [featurePlayerImg, featurePlaylistsImg, analyticsImg, historyImg],
+    github: "https://github.com/Roushan-Gupta1889/StudyPlus-YT-Next.js-",
+    demo: "https://study-plus-yt-next-js.vercel.app/",
+    featured: true,
+  },
   {
     id: "iitm-helper",
     title: "IITM Helper",
