@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, X } from "lucide-react"; // Added X icon for back button
 import { Button } from "@/components/ui/button";
 import fullPhoto from "../assets/full_photo.jpg";
-import resumePDF from "../assets/3rd_sem_resume(updated).pdf";
+import resumePDF from "../assets/DataTechAlpha.pdf";
 import { useEffect, useState } from "react";
 
 export const HeroSection = () => {
@@ -132,7 +132,7 @@ export const HeroSection = () => {
                 className="font-semibold w-full sm:w-auto text-sm sm:text-base"
                 asChild
               >
-                <a href={resumePDF} download="Roushan_Gupta_Resume.pdf">
+                <a href={resumePDF} download="DataTechAlpha.pdf">
                   Download Resume
                 </a>
               </Button>
